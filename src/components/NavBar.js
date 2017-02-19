@@ -1,14 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { Input, Menu } from 'semantic-ui-react'
 
-export default function NavBar() {
-  return (
-    <div className='navbar'>
-      <ul className='navbar-list'>
-        <li className='navbar-item'>{/* logo */} logo</li>
-        <li className='navbar-item'>{/* search bar */}search</li>
-        <li className='navbar-item'>{/* logout */}logout</li>
-      </ul>
-      
-    </div>
-  )
+export default class NavBar extends Component {
+ state = { activeItem: 'home' }
+
+ handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+ render() {
+   const { activeItem } = this.state
+
+   return (
+     <Menu secondary>
+       <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+       <Menu.Item name='messages' active={activeItem === 'messages'} onClick={this.handleItemClick} />
+       <Menu.Item name='friends' active={activeItem === 'friends'} onClick={this.handleItemClick} />
+       <Menu.Menu position='right'>
+         <Menu.Item>
+           <Input icon='search' placeholder='Search...' />
+         </Menu.Item>
+         <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleItemClick} />
+       </Menu.Menu>
+     </Menu>
+   )
+ }
 }
