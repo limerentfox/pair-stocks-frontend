@@ -47,37 +47,37 @@ class SignUpForm extends Component {
 
         <Form onSubmit={this.handleSubmit}>
 
-          <Form.Field>
+          <Form.Field width='4'>
             <label>Username</label>
             <input name='username' onChange={this.handleChange} placeholder='username' />
           </Form.Field>
 
-          <Form.Field>
+          <Form.Field width='4'>
             <label>Password</label>
             <input name='password' onChange={this.handleChange} type='password' placeholder='password' />
           </Form.Field>
 
-          <Form.Field>
+          <Form.Field width='4'>
             <label>Password Confirmation</label>
             <input name='password_confirmation' onChange={this.handleChange} type='password' placeholder='password confirmation' />
           </Form.Field>
 
-          <Form.Field>
+          <Form.Field width='4'>
             <label>Email</label>
             <input name='email' onChange={this.handleChange} placeholder='email' />
           </Form.Field>
 
-          <Form.Field>
+          <Form.Field width='4'>
             <label>First Name</label>
             <input name='first_name' onChange={this.handleChange} placeholder='first name' />
           </Form.Field>
 
-          <Form.Field>
+          <Form.Field width='4'>
             <label>Last Name</label>
             <input name='last_name' onChange={this.handleChange} placeholder='last name' />
           </Form.Field>
 
-          <Form.Field>
+          <Form.Field width='4'>
             <label>Avatar</label>
             <input name='avatar' onChange={this.handleChange} placeholder='avatar' />
           </Form.Field>
