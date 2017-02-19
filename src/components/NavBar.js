@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Input, Menu } from 'semantic-ui-react'
 import { browserHistory } from 'react-router'
+import Search from './Search'
 
 export default class NavBar extends Component {
   constructor() {
@@ -38,6 +39,7 @@ export default class NavBar extends Component {
         </Menu.Item>
         <Menu.Item>
           <Input icon='search' placeholder='Search...' />
+          <Search />
         </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogOut} />
