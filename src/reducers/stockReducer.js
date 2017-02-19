@@ -8,7 +8,6 @@ export default function(state=[], action){
       const new_state = state.filter(stock => stock.ticker !== action.payload)
       return new_state
     case 'QUERY_STOCKS':
-      debugger
       return action.payload.data
     default:
       return state
