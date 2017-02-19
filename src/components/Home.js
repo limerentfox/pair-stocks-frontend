@@ -4,7 +4,7 @@ import IndividualProfileCard from '../semantic-ui-components/IndividualProfileCa
 import { fetchUser } from '../actions/userActions'
 
 class Home extends Component {
-  componentDidMount(){
+  componentWillMount(){
     this.props.fetchUser()
   }
 

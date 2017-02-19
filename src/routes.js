@@ -8,20 +8,20 @@ import Edit from './components/Edit'
 
 export default (
   <Route path='/' component={ App }>
-    <IndexRoute component={ Home }/>
-    <Route path='/home' component={ Home }>
-      <Route onEnter={RequireAuth} path='/edit' component={ Edit }/>
+    <IndexRoute component={ Home } onEnter={ requireAuth }/>
+    <Route path='/home' component={ Home } onEnter={ requireAuth }>
+      <Route path='/edit' component={ Edit }/>
     </Route>
     <Route path='/login' component={ LogIn }/>
     <Route path='/signup' component={ SignUp }/>
   </Route>
 )
 
-function RequireAuth(nextState, replace){
-  if (!sessionStorage.jwt){
+function requireAuth(nextState, replace) {
+  console.log("On Enter")
+  if (!sessionStorage.jwt) {
     replace({
-      pathname: '/login',
-      state: { nextPathname: nextState.location.pathname }
+      pathname: '/login'
     })
   }
 }
