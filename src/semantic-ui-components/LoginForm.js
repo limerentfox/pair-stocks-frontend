@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
 import { Button, Form } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { login } from '../actions/userActions'
 
@@ -14,6 +15,7 @@ class LoginForm extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleSignUp = this.handleSignUp.bind(this)
   }
 
   handleChange( event ){
@@ -28,6 +30,10 @@ class LoginForm extends Component {
     this.props.login( this.state.credentials )
   }
 
+  handleSignUp(){
+    browserHistory.push('/signup')
+  }
+
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -39,7 +45,8 @@ class LoginForm extends Component {
           <label>Password</label>
           <input name='password' onChange={this.handleChange} type='password' placeholder='password' />
         </Form.Field>
-        <Button type='submit'>Submit</Button>
+        <Button type='submit' color='green'>Log In</Button>
+        <Button type='button' onClick={ this.handleSignUp }>Sign Up</Button>
       </Form>
     )
   }
