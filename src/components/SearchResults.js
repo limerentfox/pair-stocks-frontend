@@ -1,3 +1,4 @@
+import { Button } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
@@ -27,7 +28,7 @@ class SearchResults extends Component {
     }
 
     return (
-      <div id="search-results-card">
+      <div className="search-results-card">
         <div className='row'>
           <div className='eight columns' onClick={ this.handleResultClick }>
             <p className="search-results-text">
@@ -38,7 +39,7 @@ class SearchResults extends Component {
           </div>
 
           <div className='four columns'>
-            <button className='u-full-width' onClick={ this.handleFollow }>Follow</button>
+            <Button onClick={ this.handleFollow }>Follow</Button>
           </div>
         </div>
       </div>
