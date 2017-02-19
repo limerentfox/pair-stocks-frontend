@@ -1,4 +1,4 @@
-import { Button, Form, Grid } from 'semantic-ui-react'
+import { Button, Form, Icon } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
@@ -47,7 +47,14 @@ class LoginForm extends Component {
             <input name='password' onChange={this.handleChange} type='password' placeholder='password' />
           </Form.Field>
           <Button type='submit' color='green'>Log In</Button>
-          <Button type='button' onClick={ this.handleSignUp }>Sign Up</Button>
+          
+          <Button onClick={ this.handleSignUp } animated>
+            <Button.Content visible>Sign Up</Button.Content>
+            <Button.Content hidden>
+              <Icon name='right arrow' />
+            </Button.Content>
+          </Button>
+
         </Form>
 
     )
