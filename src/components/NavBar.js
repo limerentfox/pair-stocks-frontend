@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Input, Menu } from 'semantic-ui-react'
 import { browserHistory } from 'react-router'
+import SearchBar from './SearchBar'
 
 export default class NavBar extends Component {
   constructor() {
@@ -22,7 +23,9 @@ export default class NavBar extends Component {
     if(!sessionStorage.jwt){
       return (
         <Menu secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} >
+            <img src='feather.png' alt='logo'/>
+          </Menu.Item>
         </Menu>
       )
     }
@@ -31,11 +34,15 @@ export default class NavBar extends Component {
 
     return (
       <Menu secondary>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-        <Menu.Menu position='right'>
+        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} >
+          <img src='feather.png' alt='logo'/>
+        </Menu.Item>
+        <Menu.Menu position='center'>
           <Menu.Item>
-            <Input icon='search' placeholder='Search...' />
+            <SearchBar />
           </Menu.Item>
+        </Menu.Menu>
+        <Menu.Menu position='right'>
           <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogOut} />
         </Menu.Menu>
       </Menu>

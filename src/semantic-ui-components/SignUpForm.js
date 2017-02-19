@@ -1,26 +1,28 @@
-import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { createUser } from '../actions/userActions'
 
 class SignUpForm extends Component {
-constructor() {
-  super()
-  this.state = {
-    credentials: {
-      username: '',
-      password: '',
-      password_confirmation: '',
-      email: '',
-      first_name: '',
-      last_name: '',
-      avatar: ''
+  constructor() {
+    super()
+    this.state = {
+      credentials: {
+        username: '',
+        password: '',
+        password_confirmation: '',
+        email: '',
+        first_name: '',
+        last_name: '',
+        avatar: ''
+      }
     }
-  }
 
-  this.handleSubmit = this.handleSubmit.bind(this)
-  this.handleChange = this.handleChange.bind(this)
-}
+    this.handleChange = this.handleChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleLogIn = this.handleLogIn.bind(this)
+  }
 
   handleChange(event){
     const field = event.target.name
@@ -35,6 +37,9 @@ constructor() {
     this.props.createUser(credentials)
   }
 
+  handleLogIn(){
+    browserHistory.push('/login')
+  }
 
   render(){
     return (
@@ -77,7 +82,8 @@ constructor() {
             <input name='avatar' onChange={this.handleChange} placeholder='avatar' />
           </Form.Field>
 
-          <Button type='submit'>Submit</Button>
+          <Button type='submit' color='green'>Sign Up</Button>
+          <Button type='button' onClick={ this.handleLogIn }>Log In</Button>
         </Form>
       </div>
     )
@@ -86,9 +92,9 @@ constructor() {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    createUser: (credentials) => {
-    let action = createUser(credentials)
-    dispatch(action)
+      createUser: (credentials) => {
+      let action = createUser(credentials)
+      dispatch(action)
     }
   }
 }
