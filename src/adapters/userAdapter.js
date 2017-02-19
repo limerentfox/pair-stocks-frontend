@@ -11,7 +11,6 @@ export const userAdapter = {
     return axios.post('/login', credentials)
       .then((response) => {
         sessionStorage.setItem('jwt', response.data.jwt)
-        browserHistory.push('/home')
 
         return !!sessionStorage.jwt
       }).catch((error) => {
@@ -22,7 +21,7 @@ export const userAdapter = {
   },
 
   fetchUser: () => {
-    return axios.get('/users/1')
+    return axios.get('/user')
     .then( response => response )
     .catch((error) => {
       console.log('Failed to get user info')
