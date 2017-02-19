@@ -1,17 +1,17 @@
 import _ from 'lodash'
+import faker from 'faker'
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { Search, Grid, Header } from 'semantic-ui-react'
 
-const getResults = () => _.times(3, () => ({
-  title: '',
-  description: '',
-  image: '',
-  price: ''
+const getResults = () => _.times(5, () => ({
+  title: faker.company.companyName(),
+  description: faker.company.catchPhrase(),
+  image: faker.internet.avatar(),
+  price: faker.finance.amount(0, 100, 2, '$'),
 }))
 
 const source = _.range(0, 3).reduce((memo, index) => {
-  const name = 'Stocks'
+  const name = faker.hacker.noun()
 
   memo[name] = {
     name,
@@ -21,7 +21,7 @@ const source = _.range(0, 3).reduce((memo, index) => {
   return memo
 }, {})
 
-class SearchBar extends Component {
+class SearchBar2 extends Component {
   componentWillMount() {
     this.resetComponent()
   }
@@ -40,10 +40,14 @@ class SearchBar extends Component {
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
       const isMatch = (result) => {
+        debugger
         return re.test(result.title)
       }
 
       const filteredResults = _.reduce(source, (memo, data, name) => {
+        console.log('MEMO ' + memo[0])
+        console.log('DATA ' + data[0])
+        console.log('NAME ' + name)
         const results = _.filter(data.results, isMatch)
 
         if (results.length) {
@@ -77,6 +81,4 @@ class SearchBar extends Component {
   }
 }
 
-
-
-export default connect( null, null)(SearchBar)
+export default SearchBar2

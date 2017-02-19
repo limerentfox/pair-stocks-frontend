@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Input, Menu } from 'semantic-ui-react'
 import { browserHistory } from 'react-router'
 import SearchBar from './SearchBar'
+import SearchBar2 from './SearchBar2'
 
 export default class NavBar extends Component {
   constructor() {
@@ -40,6 +41,9 @@ export default class NavBar extends Component {
         <Menu.Menu position='center'>
           <Menu.Item>
             <SearchBar />
+          </Menu.Item>
+          <Menu.Item>
+            <SearchBar2 />
           </Menu.Item>
         </Menu.Menu>
         <Menu.Menu position='right'>

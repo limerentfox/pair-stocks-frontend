@@ -18,10 +18,5 @@ export default (
 )
 
 function requireAuth(nextState, replace) {
-  console.log("On Enter")
-  if (!sessionStorage.jwt) {
-    replace({
-      pathname: '/login'
-    })
-  }
+  if (!sessionStorage.jwt) replace({ pathname: '/login' })
 }

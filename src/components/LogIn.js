@@ -4,10 +4,8 @@ import LoginForm from '../semantic-ui-components/LoginForm'
 
 export default class LogIn extends Component {
   render(){
-    if(!!sessionStorage.jwt){
-      browserHistory.push('/')
-    }
-
+    if(!!sessionStorage.jwt) browserHistory.push('/')
+    
     return (
       <div>
         <h4>Log In</h4>
