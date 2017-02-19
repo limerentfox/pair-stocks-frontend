@@ -2,6 +2,7 @@ import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Search, Grid, Header } from 'semantic-ui-react'
+import { queryStocks } from '../actions/stockActions'
 
 const getResults = () => _.times(3, () => ({
   title: '',
@@ -33,6 +34,7 @@ class SearchBar extends Component {
   }
 
   handleSearchChange = (e, value) => {
+    let x = this.props.queryStocks(value)
     this.setState({ isLoading: true, value })
 
     setTimeout(() => {
@@ -44,6 +46,7 @@ class SearchBar extends Component {
       }
 
       const filteredResults = _.reduce(source, (memo, data, name) => {
+        debugger
         const results = _.filter(data.results, isMatch)
 
         if (results.length) {
@@ -77,6 +80,19 @@ class SearchBar extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    stocks: state.stocks
+  }
+}
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    queryStocks: function(query){
+      let action = queryStocks(query)
+      dispatch(action)
+    }
+  }
+}
 
-export default connect( null, null)(SearchBar)
+export default connect( null, mapDispatchToProps)(SearchBar)
