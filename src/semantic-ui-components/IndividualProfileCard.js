@@ -8,7 +8,9 @@ const extra = (
   </a>
 )
 
-const IndividualProfileCard = () => (
+const IndividualProfileCard = () => {
+  debugger
+  return (
   <Card
     image='http://semantic-ui.com/images/avatar/large/elliot.jpg'
     header='Elliot Baker'
@@ -16,6 +18,6 @@ const IndividualProfileCard = () => (
     description='Elliot is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.'
     extra={extra}
   />
-)
+) }
 
 export default IndividualProfileCard

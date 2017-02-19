@@ -10,9 +10,18 @@ export default (
   <Route path='/' component={ App }>
     <IndexRoute component={ Home }/>
     <Route path='/home' component={ Home }>
-      <Route path='/edit' component={ Edit }/>
+      <Route onEnter={RequireAuth} path='/edit' component={ Edit }/>
     </Route>
     <Route path='/login' component={ LogIn }/>
     <Route path='/signup' component={ SignUp }/>
   </Route>
 )
+
+function RequireAuth(nextState, replace){
+  if (!sessionStorage.jwt){
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
