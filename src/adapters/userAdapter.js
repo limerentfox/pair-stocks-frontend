@@ -30,5 +30,22 @@ export const userAdapter = {
 
       return error
     })
+  },
+
+  createUser: (credentials) => {
+
+
+    return axios.post('/signup', credentials)
+      .then((response) => {
+        sessionStorage.setItem('jwt', response.data.jwt)
+        browserHistory.push('/home')
+
+        return !!sessionStorage.jwt
+      }).catch((error) => {
+        console.log('Failed to sign up')
+        console.log(error)
+
+        return error
+      })
   }
 }

@@ -3,7 +3,7 @@ export default function userReducer( state=[], action ){
     case 'LOGIN_USER':
       return action.payload
     case 'CREATE_USER':
-      return state
+      return action.payload
     case 'ADD_USER':
       return state
     case 'FETCH_USER':
