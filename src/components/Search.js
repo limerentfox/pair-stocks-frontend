@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { connect } from 'react-redux'
 import { queryStocks } from '../actions/stockActions'
@@ -37,9 +38,10 @@ class Search extends React.Component {
     const searchComponent = this.getSearchComponent(stockSearch)
 
     return (
-      <div id='search-nav'>
+      <div id='search'>
         <input
           icon='search'
+          placeholder='Search...'
           id='search'
           type='text'
           ref='search'

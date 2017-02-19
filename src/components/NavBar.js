@@ -38,7 +38,6 @@ export default class NavBar extends Component {
           <img src='feather.png' alt='logo'/>
         </Menu.Item>
         <Menu.Item>
-          <Input icon='search' placeholder='Search...' />
           <Search />
         </Menu.Item>
         <Menu.Menu position='right'>
