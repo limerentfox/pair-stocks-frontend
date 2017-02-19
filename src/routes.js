@@ -5,6 +5,7 @@ import Home from './components/Home'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import Edit from './components/Edit'
+import UserStocks from './components/UserStocks'
 
 export default (
   <Route path='/' component={ App }>
@@ -14,6 +15,7 @@ export default (
     </Route>
     <Route path='/login' component={ LogIn }/>
     <Route path='/signup' component={ SignUp }/>
+    <Route path='/stock' component={ UserStocks }/>
   </Route>
 )
 
