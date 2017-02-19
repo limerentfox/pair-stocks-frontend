@@ -1,17 +1,18 @@
 import _ from 'lodash'
-import faker from 'faker'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Search, Grid, Header } from 'semantic-ui-react'
+import { queryStocks } from '../actions/stockActions'
 
-const getResults = () => _.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
+const getResults = () => _.times(3, () => ({
+  title: '',
+  description: '',
+  image: '',
+  price: ''
 }))
 
 const source = _.range(0, 3).reduce((memo, index) => {
-  const name = faker.hacker.noun()
+  const name = 'Stocks'
 
   memo[name] = {
     name,
@@ -21,25 +22,31 @@ const source = _.range(0, 3).reduce((memo, index) => {
   return memo
 }, {})
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   componentWillMount() {
     this.resetComponent()
   }
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
-  handleResultSelect = (e, result) => this.setState({ value: result.title })
+  handleResultSelect = (e, result) => {
+    this.setState({ value: result.title })
+  }
 
   handleSearchChange = (e, value) => {
+    let x = this.props.queryStocks(value)
     this.setState({ isLoading: true, value })
 
     setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent()
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = (result) => re.test(result.title)
+      const isMatch = (result) => {
+        return re.test(result.title)
+      }
 
       const filteredResults = _.reduce(source, (memo, data, name) => {
+        debugger
         const results = _.filter(data.results, isMatch)
 
         if (results.length) {
@@ -72,3 +79,20 @@ export default class SearchBar extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    stocks: state.stocks
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    queryStocks: function(query){
+      let action = queryStocks(query)
+      dispatch(action)
+    }
+  }
+}
+
+export default connect( null, mapDispatchToProps)(SearchBar)

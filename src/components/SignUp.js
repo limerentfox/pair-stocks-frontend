@@ -4,10 +4,8 @@ import SignUpForm from '../semantic-ui-components/SignUpForm'
 
 export default class SignUp extends Component {
   render(){
-    if(!!sessionStorage.jwt){
-      browserHistory.push('/')
-    }
-    
+    if(!!sessionStorage.jwt) browserHistory.push('/')
+
     return (
       <div>
         <h4>Sign Up</h4>
