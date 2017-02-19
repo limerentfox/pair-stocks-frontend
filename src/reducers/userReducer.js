@@ -7,7 +7,7 @@ export default function userReducer( state=[], action ){
     case 'ADD_USER':
       return state
     case 'FETCH_USER':
-      return state
+      return action.payload.data
     default:
       return state
   }
