@@ -19,6 +19,14 @@ export default class NavBar extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
+    if(!sessionStorage.jwt){
+      return (
+        <Menu secondary>
+          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+        </Menu>
+      )
+    }
+
     const { activeItem } = this.state
 
     return (
