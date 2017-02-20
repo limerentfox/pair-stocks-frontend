@@ -22,12 +22,13 @@ class LoginForm extends Component {
     const field = event.target.name
     const credentials = this.state.credentials
     credentials[field] = event.target.value
-    return this.setState({ credentials })
+    return this.setState( credentials )
   }
 
   handleSubmit( event ){
+    const credentials = this.state.credentials
     event.preventDefault()
-    this.props.login( this.state.credentials )
+    this.props.login( credentials )
   }
 
   handleSignUp(){
@@ -47,7 +48,7 @@ class LoginForm extends Component {
             <input name='password' onChange={this.handleChange} type='password' placeholder='password' />
           </Form.Field>
           <Button type='submit' color='green'>Log In</Button>
-          
+
           <Button onClick={ this.handleSignUp } animated>
             <Button.Content visible>Sign Up</Button.Content>
             <Button.Content hidden>
