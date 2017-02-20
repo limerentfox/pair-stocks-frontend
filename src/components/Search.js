@@ -39,14 +39,14 @@ class Search extends React.Component {
 
     return (
       <div className="ui search" >
-        <div className="ui icon input">
+        <div className="ui input">
           <input
 
             className="prompt"
             icon='search'
             placeholder='Search...'
 
-            type='text'
+            type='search'
             ref='search'
             autoComplete='off'
             onChange={ this.handleInput }
@@ -75,7 +75,7 @@ class Search extends React.Component {
 
     if(!this.state.removeResults){
       component = (
-        <div className='push'>
+        <div>
           {
             stockSearch.map((stock, i) => {
               return <SearchResults key={i} ticker={ stock.ticker } company_name={ stock.name } />

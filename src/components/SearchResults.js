@@ -34,7 +34,8 @@ class SearchResults extends Component {
       <div className="results">
 
         <div className="padded" onClick={ this.handleResultClick }>
-          <p>{`${ this.props.ticker }: ${ this.props.company_name }`}<Icon link name='add circle' color='green' onClick={ this.handleFollow } /></p>
+          <p>{`${ this.props.ticker }: ${ this.props.company_name }`}</p>
+          <Icon link size='large' name='add circle' color='green' onClick={ this.handleFollow } />
         </div>
 
 
