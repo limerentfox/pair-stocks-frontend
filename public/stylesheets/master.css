@@ -1,19 +1,42 @@
-#search{
-  width: 15em;
-  border-width: 1px;
-  border-radius: 4px;
-  border-color: #bdc3c7;
-  outline: none;
-  padding: 0.5em;
+
+.body-container {
+  margin-top: 2em;
 }
 
-.search-results-card {
-  width: 25em;
-  height: auto;
-  background-color: #fff;
-  padding: 0.4em;
-  margin-top: 0.25em;
-  border: 1px solid #bdc3c7;
-  border-radius: 4px;
-  display: block;
+/* individual results*/
+.padded, p {
+
+  display: inline;
+}
+
+/* profile card*/
+.card{
+  z-index: -1;
+}
+
+
+/* search results */
+.results {
+  padding: 1em;
+  background-color: white;
+  z-index: 99;
+  box-shadow: 0px 4px 2px 0px rgba(0,0,0,0.25);
+}
+.results:first-child{
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.results:last-child{
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+/* the collective results positions ontop of everything else*/
+.hover {
+  height: 2.5em;
+  width: 27em;
+  position: fixed;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
 }

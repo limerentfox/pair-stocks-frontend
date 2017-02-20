@@ -38,18 +38,22 @@ class Search extends React.Component {
     const searchComponent = this.getSearchComponent(stockSearch)
 
     return (
-      <div id='search'>
-        <input
-          icon='search'
-          placeholder='Search...'
-          id='search'
-          type='text'
-          ref='search'
-          autoComplete='off'
-          onChange={ this.handleInput }
-          onFocus={ this.handleFocus }
-          onBlur={ this.handleBlur }
-        />
+      <div className="ui search" >
+        <div className="ui input">
+          <input
+
+            className="prompt"
+            icon='search'
+            placeholder='Search...'
+
+            type='search'
+            ref='search'
+            autoComplete='off'
+            onChange={ this.handleInput }
+            onFocus={ this.handleFocus }
+            onBlur={ this.handleBlur }
+          />
+        </div>
 
         { searchComponent }
       </div>

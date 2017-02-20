@@ -9,15 +9,13 @@ const extra = (
 )
 
 class IndividualProfileCard extends Component {
-  constructor(props) {
-    super(props)
-  }
+
 
   render(){
     const user = this.props.user
 
     return (
-      <Card
+      <Card className="card"
         image='http://semantic-ui.com/images/avatar/large/elliot.jpg'
         header={`${ user.first_name } ${ user.last_name }`}
         meta='Friend'

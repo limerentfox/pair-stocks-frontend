@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Menu } from 'semantic-ui-react'
+import { Menu } from 'semantic-ui-react'
 import { browserHistory } from 'react-router'
 import Search from './Search'
 
@@ -15,35 +15,41 @@ export default class NavBar extends Component {
     browserHistory.push('/login')
   }
 
-  state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
     if(!sessionStorage.jwt){
       return (
-        <Menu secondary>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} >
+        <Menu secondary attached='top'>
+          <Menu.Item name='home'  >
             <img src='feather.png' alt='logo'/>
           </Menu.Item>
         </Menu>
       )
     }
 
-    const { activeItem } = this.state
 
     return (
-      <Menu secondary>
-        <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} >
+      <Menu secondary attached='top'>
+        <Menu.Item name='home' >
           <img src='feather.png' alt='logo'/>
+
         </Menu.Item>
-        <Menu.Item>
-          <Search />
+        <Menu.Item >
+          <div className='hover'>
+
+            <Search />
+
+          </div>
         </Menu.Item>
-        <Menu.Menu position='right'>
-          <Menu.Item name='logout' active={activeItem === 'logout'} onClick={this.handleLogOut} />
-        </Menu.Menu>
+
+        <Menu.Item position='right' name='logout' onClick={this.handleLogOut} >
+          Logout
+        </Menu.Item>
+
       </Menu>
+
+
     )
   }
 }
