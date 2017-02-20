@@ -38,18 +38,22 @@ class Search extends React.Component {
     const searchComponent = this.getSearchComponent(stockSearch)
 
     return (
-      <div id='search'>
-        <input
-          icon='search'
-          placeholder='Search...'
-          id='search'
-          type='text'
-          ref='search'
-          autoComplete='off'
-          onChange={ this.handleInput }
-          onFocus={ this.handleFocus }
-          onBlur={ this.handleBlur }
-        />
+      <div className="ui search" >
+        <div className="ui icon input">
+          <input
+
+            className="prompt"
+            icon='search'
+            placeholder='Search...'
+
+            type='text'
+            ref='search'
+            autoComplete='off'
+            onChange={ this.handleInput }
+            onFocus={ this.handleFocus }
+            onBlur={ this.handleBlur }
+          />
+        </div>
 
         { searchComponent }
       </div>
@@ -74,7 +78,7 @@ class Search extends React.Component {
         <div>
           {
             stockSearch.map((stock, i) => {
-              return <SearchResults key={i} ticker={ stock.ticker } company_name={ stock.name } />
+              return <SearchResults className='results' key={i} ticker={ stock.ticker } company_name={ stock.name } />
             })
           }
         </div>

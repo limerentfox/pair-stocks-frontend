@@ -22,7 +22,7 @@ export default class NavBar extends Component {
   render() {
     if(!sessionStorage.jwt){
       return (
-        <Menu secondary>
+        <Menu secondary className='menu'>
           <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} >
             <img src='feather.png' alt='logo'/>
           </Menu.Item>
@@ -33,7 +33,7 @@ export default class NavBar extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu secondary>
+      <Menu secondary className='menu'>
         <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} >
           <img src='feather.png' alt='logo'/>
         </Menu.Item>

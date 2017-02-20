@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { followStock } from '../actions'
+import { Icon } from 'semantic-ui-react'
 
 class SearchResults extends Component {
   constructor() {
@@ -27,22 +28,20 @@ class SearchResults extends Component {
         return null
     }
 
-    return (
-      <div className="search-results-card">
-        <div className='row'>
-          <div className='eight columns' onClick={ this.handleResultClick }>
-            <p className="search-results-text">
-              { this.props.company_name }
-              <br/>
-              { this.props.ticker }
-            </p>
-          </div>
 
-          <div className='four columns'>
-            <Button onClick={ this.handleFollow }>Follow</Button>
-          </div>
+
+    return (
+      <div className="results">
+
+        <div className="padded" onClick={ this.handleResultClick }>
+          <p>{`${ this.props.ticker }: ${ this.props.company_name }`}<Icon link name='add circle' color='green' onClick={ this.handleFollow } /></p>
         </div>
-      </div>
+
+
+
+
+        </div>
+
     )
   }
 }

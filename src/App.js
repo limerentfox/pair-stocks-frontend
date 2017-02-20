@@ -5,8 +5,9 @@ export default class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar/>
-        <div className='ui container'>
+
+        <NavBar className='nav'/>
+        <div className='ui container body-container'>
           { this.props.children }
         </div>
       </div>
