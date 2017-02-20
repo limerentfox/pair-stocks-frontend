@@ -75,10 +75,10 @@ class Search extends React.Component {
 
     if(!this.state.removeResults){
       component = (
-        <div>
+        <div className='push'>
           {
             stockSearch.map((stock, i) => {
-              return <SearchResults className='results' key={i} ticker={ stock.ticker } company_name={ stock.name } />
+              return <SearchResults key={i} ticker={ stock.ticker } company_name={ stock.name } />
             })
           }
         </div>
