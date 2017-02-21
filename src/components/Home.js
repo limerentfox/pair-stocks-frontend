@@ -21,7 +21,7 @@ class Home extends Component {
       <div>
 
         <IndividualProfileCard user={user} />
-        <UserStocks />
+        <UserStocks user={user}/>
       </div>
     )
   }
