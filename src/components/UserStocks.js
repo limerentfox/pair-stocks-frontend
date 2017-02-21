@@ -13,12 +13,12 @@ class UserStocks extends Component {
 
     if (!userStocks) return <div></div>
 
-    return (<div>
-      {
-        userStocks.map( ( stock, i ) => <LinkedStockCard key={i} stock={stock} /> )
-      }
-
-    </div>
+    return (
+      <div>
+        {
+          userStocks.map( ( stock, i ) => <LinkedStockCard key={i} stock={stock} /> )
+        }
+      </div>
 
 
     )
