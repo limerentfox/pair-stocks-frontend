@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import LinkedStockCard from '../semantic-ui-components/LinkedStockCard'
-import { fetchStocksOwned } from '../actions/index'
+//import LinkedStockCard from '../semantic-ui-components/LinkedStockCard'
+import StockCard from './StockCard'
+import { fetchStocksOwned } from '../actions/stockActions'
 
 class UserStocks extends Component {
 
@@ -11,14 +12,13 @@ class UserStocks extends Component {
 
   render() {
     const userStocks = this.props.stocks
-    if (userStocks.length === 0 || 'na' in userStocks) {
-      return (<div></div>)
-    }
+    debugger
+    if (userStocks.length === 0 || 'na' in userStocks) return <div></div>
 
     return (
       <div>
         {
-          userStocks.map( ( stock, i ) => <LinkedStockCard key={i} stock={stock} /> )
+          userStocks.map( ( stock, i ) => <StockCard key={i} stock={stock} /> )
         }
       </div>
     )

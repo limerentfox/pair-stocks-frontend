@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import IndividualProfileCard from '../semantic-ui-components/IndividualProfileCard'
 import { fetchUser } from '../actions/userActions'
+import UserStocks from './UserStocks'
 
 class Home extends Component {
   componentWillMount(){
@@ -18,6 +19,7 @@ class Home extends Component {
           <IndividualProfileCard user={user} />
         </Grid.Column>
         <Grid.Column width={12}>
+          <UserStocks/>
         </Grid.Column>
       </Grid>
     )
