@@ -1,3 +1,4 @@
+import { Grid } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import IndividualProfileCard from '../semantic-ui-components/IndividualProfileCard'
@@ -12,9 +13,13 @@ class Home extends Component {
     const user = this.props.user
 
     return (
-      <div>
-        <IndividualProfileCard user={user} />
-      </div>
+      <Grid columns='equal'>
+        <Grid.Column>
+          <IndividualProfileCard user={user} />
+        </Grid.Column>
+        <Grid.Column width={12}>
+        </Grid.Column>
+      </Grid>
     )
   }
 }
