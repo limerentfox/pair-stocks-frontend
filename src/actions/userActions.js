@@ -3,6 +3,7 @@ import { userAdapter } from '../adapters/userAdapter'
 export const CREATE_USER = 'CREATE_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const FETCH_USER = 'FETCH_USER'
+export const FETCH_OTHER_USER = 'FETCH_OTHER_USER'
 
 
 
@@ -19,6 +20,14 @@ export const fetchUser = () => {
 
   return {
     type: FETCH_USER,
+    payload: response
+  }
+}
+
+export const fetchOtherUser = (username) => {
+  const response = userAdapter.fetchOtherUser(username)
+  return {
+    type: FETCH_OTHER_USER,
     payload: response
   }
 }

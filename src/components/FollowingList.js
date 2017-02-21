@@ -13,7 +13,7 @@ class FollowingList extends Component {
 
   render() {
     const followingList = this.props.following
-    debugger
+
     if ( followingList === undefined || followingList.length === 0 ) {
       return ( <div> </div> )
     }
