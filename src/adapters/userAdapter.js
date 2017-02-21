@@ -12,7 +12,7 @@ export const userAdapter = {
       .then((response) => {
         sessionStorage.setItem('jwt', response.data.jwt)
 
-        return !!sessionStorage.jwt
+        return response.data
       }).catch((error) => {
         console.log('Failed to login')
         console.log(error)

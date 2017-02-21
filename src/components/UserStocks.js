@@ -8,17 +8,24 @@ import { Card } from 'semantic-ui-react'
 class UserStocks extends Component {
 
   componentDidMount() {
-    this.props.fetchStocksOwned()
+    // console.log('fire')
+    // this.props.fetchStocksOwned(this.props.user)
   }
 
   render() {
+
     const userStocks = this.props.stocks
 
     if (userStocks.length === 0 || 'na' in userStocks) return <div></div>
 
-    return (<div></div>
+    return (<div>
+      {
+        userStocks.map( ( stock, i ) => <LinkedStockCard key={i} stock={stock} /> )
+      }
 
-     
+    </div>
+
+
     )
   }
 }

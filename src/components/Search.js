@@ -49,13 +49,17 @@ class Search extends React.Component {
             autoComplete='off'
             onChange={ this.handleInput }
             onFocus={ this.handleFocus }
-            // onBlur={ this.handleBlur }
+            onBlur={ this.handleBlur }
           />
         </div>
 
         { searchComponent }
       </div>
     )
+  }
+
+  clearQuery(){
+    this.refs.search.value = ''
   }
 
   queryUnlessBlank() {
@@ -76,7 +80,7 @@ class Search extends React.Component {
         <div>
           {
             stockSearch.map((stock, i) => {
-              return <SearchResults key={i} ticker={ stock.ticker } company_name={ stock.name } />
+              return <SearchResults key={i} clearQuery={this.clearQuery.bind(this)} ticker={ stock.ticker } company_name={ stock.name } />
             })
           }
         </div>
@@ -89,7 +93,7 @@ class Search extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    stockSearch: state.stocks
+    stockSearch: state.search
   }
 }
 

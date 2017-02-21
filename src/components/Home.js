@@ -7,30 +7,35 @@ import { Grid } from 'semantic-ui-react'
 
 
 class Home extends Component {
-  componentDidMount(){
+  componentWillMount(){
+
     this.props.fetchUser()
+    console.log('got the user!')
   }
 
   render(){
+
     const user = this.props.user
 
     return (
       <div>
 
         <IndividualProfileCard user={user} />
-        
+        <UserStocks />
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
+
   return {
     user: state.user
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
+
   return {
     fetchUser: function(){
       let action = fetchUser()

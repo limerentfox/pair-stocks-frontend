@@ -21,7 +21,7 @@ class LinkedStockCard extends Component {
 
   render(){
     return (
-      <div>
+
         <Card>
 
           <Icon onClick={this.handleUnfollow} corner name='delete' inverted color='red' />
@@ -34,7 +34,7 @@ class LinkedStockCard extends Component {
 
           </Card.Content>
         </Card>
-      </div>
+
         )}
         }
 

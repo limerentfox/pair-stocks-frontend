@@ -5,8 +5,8 @@ const QUERY_STOCKS = 'QUERY_STOCKS'
 const REMOVE_STOCK = 'REMOVE_STOCK'
 const ADD_STOCK = 'ADD_STOCK'
 
-export const fetchStocksOwned = () => {
-  const response = stockAdapter.fetchStock()
+export const fetchStocksOwned = (user) => {
+  const response = stockAdapter.fetchStock(user)
 
   return {
     type: FETCH_STOCKS_OWNED,
