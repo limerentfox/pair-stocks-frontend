@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import IndividualProfileCard from '../semantic-ui-components/IndividualProfileCard'
 import UserStocks from './UserStocks'
 import { fetchUser } from '../actions/userActions'
+import { Grid } from 'semantic-ui-react'
 
 
 class Home extends Component {
@@ -15,8 +16,16 @@ class Home extends Component {
 
     return (
       <div>
-        <IndividualProfileCard user={user} />
-        <UserStocks />
+        <Grid>
+          <Grid.Column width={6}>
+            <IndividualProfileCard user={user} />
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <UserStocks />
+          </Grid.Column>
+
+        </Grid>
+
       </div>
     )
   }
