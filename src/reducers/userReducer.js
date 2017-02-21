@@ -4,11 +4,19 @@ export default function userReducer( state=[], action ){
   switch (action.type) {
     case 'LOGIN_USER':
       browserHistory.push('/home')
-      return action.payload
+      return action.payload.user
     case 'CREATE_USER':
       return action.payload
     case 'FETCH_USER':
       return action.payload.data
+    case 'ADD_STOCK':
+      debugger
+
+      let new_stock = {
+        ticker: action.payload.ticker,
+        company_name: action.payload.company_name
+      }
+      return Object.assign({}, state, { stocks: [...state.stocks, new_stock] } )
     default:
       return state
   }

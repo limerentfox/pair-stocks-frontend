@@ -58,6 +58,10 @@ class Search extends React.Component {
     )
   }
 
+  clearQuery(){
+    this.refs.search.value = ''
+  }
+
   queryUnlessBlank() {
     const query = this.refs.search.value
     if(query !== ''){
@@ -76,7 +80,7 @@ class Search extends React.Component {
         <div>
           {
             stockSearch.map((stock, i) => {
-              return <SearchResults key={i} ticker={ stock.ticker } company_name={ stock.name } />
+              return <SearchResults key={i} clearQuery={this.clearQuery.bind(this)} ticker={ stock.ticker } company_name={ stock.name } />
             })
           }
         </div>
@@ -89,7 +93,7 @@ class Search extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    stockSearch: state.stocks
+    stockSearch: state.search
   }
 }
 

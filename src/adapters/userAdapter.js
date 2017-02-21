@@ -11,8 +11,9 @@ export const userAdapter = {
     return axios.post('/login', credentials)
       .then((response) => {
         sessionStorage.setItem('jwt', response.data.jwt)
+        axios.defaults.headers.common['AUTHORIZATION'] = response.data.jwt
 
-        return !!sessionStorage.jwt
+        return response.data
       }).catch((error) => {
         console.log('Failed to login')
         console.log(error)
@@ -21,6 +22,7 @@ export const userAdapter = {
   },
 
   fetchUser: () => {
+
     return axios.get('/user')
     .then( response => response )
     .catch((error) => {
@@ -37,6 +39,7 @@ export const userAdapter = {
     return axios.post('/signup', credentials)
       .then((response) => {
         sessionStorage.setItem('jwt', response.data.jwt)
+        axios.defaults.headers.common['AUTHORIZATION'] = response.data.jwt
         browserHistory.push('/home')
 
         return !!sessionStorage.jwt
