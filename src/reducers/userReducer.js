@@ -7,8 +7,6 @@ export default function userReducer( state=[], action ){
       return action.payload.user
     case 'CREATE_USER':
       return action.payload
-    case 'ADD_USER':
-      return state
     case 'FETCH_USER':
       return action.payload.data
     case 'ADD_STOCK':
