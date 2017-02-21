@@ -4,8 +4,6 @@ import { browserHistory } from 'react-router'
 axios.defaults.baseURL = 'http://localhost:4000/api/v1/'
 axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
 
-
-
 export const userAdapter = {
   login: (credentials) => {
     return axios.post('/login', credentials)
@@ -22,7 +20,6 @@ export const userAdapter = {
   },
 
   fetchUser: () => {
-
     return axios.get('/user')
     .then( response => response )
     .catch((error) => {
@@ -33,8 +30,8 @@ export const userAdapter = {
     })
   },
 
-  fetchOtherUser: (username) => {
 
+  fetchOtherUser: (username) => {
     return axios.get(`/user/${username}`)
     .then( response => response )
     .catch((error) => {
@@ -46,18 +43,16 @@ export const userAdapter = {
   },
 
   createUser: (credentials) => {
-
     return axios.post('/signup', credentials)
       .then((response) => {
         sessionStorage.setItem('jwt', response.data.jwt)
         axios.defaults.headers.common['AUTHORIZATION'] = response.data.jwt
         browserHistory.push('/home')
 
-        return !!sessionStorage.jwt
+        return response.data
       }).catch((error) => {
         console.log('Failed to sign up')
         console.log(error)
-
         return error
       })
   }
