@@ -1,12 +1,13 @@
-import { Grid } from 'semantic-ui-react'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import IndividualProfileCard from '../semantic-ui-components/IndividualProfileCard'
-import { fetchUser } from '../actions/userActions'
 import UserStocks from './UserStocks'
+import { fetchUser } from '../actions/userActions'
+import { Grid } from 'semantic-ui-react'
+
 
 class Home extends Component {
-  componentWillMount(){
+  componentDidMount(){
     this.props.fetchUser()
   }
 
@@ -14,14 +15,18 @@ class Home extends Component {
     const user = this.props.user
 
     return (
-      <Grid columns='equal'>
-        <Grid.Column>
-          <IndividualProfileCard user={user} />
-        </Grid.Column>
-        <Grid.Column width={12}>
-          <UserStocks/>
-        </Grid.Column>
-      </Grid>
+      <div>
+        <Grid>
+          <Grid.Column width={6}>
+            <IndividualProfileCard user={user} />
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <UserStocks />
+          </Grid.Column>
+
+        </Grid>
+
+      </div>
     )
   }
 }

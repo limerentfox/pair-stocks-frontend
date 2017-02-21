@@ -20,14 +20,14 @@
 }
 /* profile card*/
 .card{
-  z-index: -1;
+  z-index: -10;
 }
 
 /* search results */
 .results {
   padding: 2.5em 3.5em 2.5em 3.5em;
   background-color: white;
-  z-index: 99;
+  z-index: 999;
   border: 1px solid #ddd;
 }
 
