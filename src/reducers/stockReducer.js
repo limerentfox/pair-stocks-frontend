@@ -1,6 +1,7 @@
 export default function(state=[], action){
   switch (action.type) {
     case 'FETCH_STOCKS_OWNED':
+      debugger
       return action.payload
     case 'ADD_STOCK':
       return [...state, action.payload]
