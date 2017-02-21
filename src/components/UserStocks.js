@@ -14,11 +14,12 @@ class UserStocks extends Component {
     if (!userStocks) return <div></div>
 
     return (
-      <div>
+      <Card.Group itemsPerRow={3}>
         {
           userStocks.map( ( stock, i ) => <LinkedStockCard key={i} stock={stock} /> )
         }
-      </div>
+
+      </Card.Group>
 
 
     )
