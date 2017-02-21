@@ -19,10 +19,18 @@ class Home extends Component {
     const user = this.props.user
 
     return (
-      <div>
-        <IndividualProfileCard user={user} />
-        <UserStocks user={user}/>
-      </div>
+      <Grid>
+        <Grid.Column width={5}>
+          <IndividualProfileCard user={user} />
+        </Grid.Column>
+
+
+
+        <Grid.Column width={11}>
+          <UserStocks user={user}/>
+          </Grid.Column >
+        </Grid>
+
     )
   }
 }
