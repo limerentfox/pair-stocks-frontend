@@ -6,7 +6,7 @@ import { unfollowStock } from '../actions/stockActions'
 class LinkedStockCard extends Component {
   constructor() {
     super()
-    this.handleClick = this.handleClick.bind(this)
+    
     this.handleUnfollow = this.handleUnfollow.bind(this)
   }
 
@@ -16,9 +16,6 @@ class LinkedStockCard extends Component {
     )
   }
 
-  handleClick(){
-
-  }
 
 
   render(){
@@ -30,7 +27,7 @@ class LinkedStockCard extends Component {
           </Card.Content>
 
           <Card.Content onClick={this.handleClick}>
-            <Card.Header as='h5'>{this.props.ticker}</Card.Header>
+            <Card.Header as='h5'>{this.props.stock.ticker}</Card.Header>
             <Card.Description as='p'>{this.props.stock.company_name}</Card.Description>
             <Card.Description as='p'>{ this.props.stock.data[0].last_price }</Card.Description>
             {/* <Image size='small' src='graph.png' /> */}
