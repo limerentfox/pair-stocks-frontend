@@ -3,12 +3,14 @@ import userReducer from './userReducer'
 import stockReducer from './stockReducer'
 import searchReducer from './searchReducer'
 import friendReducer from './friendReducer'
+import viewUserReducer from './viewUserReducer'
 
 const rootReducer = combineReducers({
   user: userReducer,
   stocks: stockReducer,
   search: searchReducer,
-  following: friendReducer
+  following: friendReducer,
+  viewUser: viewUserReducer
 })
 
 export default rootReducer

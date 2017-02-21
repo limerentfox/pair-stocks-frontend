@@ -33,8 +33,19 @@ export const userAdapter = {
     })
   },
 
-  createUser: (credentials) => {
+  fetchOtherUser: (username) => {
 
+    return axios.get(`/user/${username}`)
+    .then( response => response )
+    .catch((error) => {
+      console.log('Failed to get other user info')
+      console.log(error)
+
+      return error
+    })
+  },
+
+  createUser: (credentials) => {
 
     return axios.post('/signup', credentials)
       .then((response) => {
