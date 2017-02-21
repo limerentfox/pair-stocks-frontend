@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import { unfollowStock } from '../actions/stockActions'
 
 class LinkedStockCard extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.handleUnfollow = this.handleUnfollow.bind(this)
   }
@@ -20,25 +20,28 @@ class LinkedStockCard extends Component {
 
 
   render(){
-
     return (
 
         <Card>
 
-          <Icon onClick={this.handleUnfollow} corner name='delete' inverted color='red' />
+          <Icon className='delete' onClick={this.handleUnfollow} corner name='delete' inverted color='red' />
 
 
           <Card.Content onClick={this.handleClick}>
             <Card.Header as='h5'>{this.props.stock.ticker}</Card.Header>
-            <Card.Description as='p'>{this.props.stock.company_name}</Card.Description>
-            {/* <Card.Description as='p'>{ this.props.stock.data[0].last_price }</Card.Description> */}
+            <Card.Description >{this.props.stock.company_name}</Card.Description>
 
-          </Card.Content>
+            </Card.Content>
         </Card>
 
         )}
         }
 
+const mapStateToProps = (state) => {
+  return {
+    stocks: state.stocks
+  }
+}
 
 function mapDispatchToProps(dispatch){
   return {
@@ -49,4 +52,4 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(null, mapDispatchToProps)(LinkedStockCard)
+export default connect(mapStateToProps, mapDispatchToProps)(LinkedStockCard)
