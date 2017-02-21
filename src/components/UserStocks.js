@@ -16,12 +16,9 @@ class UserStocks extends Component {
 
     if (userStocks.length === 0 || 'na' in userStocks) return <div></div>
 
-    return (
-      <Card.Group itemsPerRow={3}>
-        {
-          userStocks.map( ( stock, i ) => <LinkedStockCard key={i} stock={stock} /> )
-        }
-      </Card.Group>
+    return (<div></div>
+
+     
     )
   }
 }

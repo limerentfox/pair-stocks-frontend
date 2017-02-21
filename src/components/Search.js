@@ -49,7 +49,7 @@ class Search extends React.Component {
             autoComplete='off'
             onChange={ this.handleInput }
             onFocus={ this.handleFocus }
-            onBlur={ this.handleBlur }
+            // onBlur={ this.handleBlur }
           />
         </div>
 

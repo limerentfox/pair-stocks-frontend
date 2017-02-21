@@ -21,7 +21,7 @@ class LinkedStockCard extends Component {
 
   render(){
     return (
-
+      <div>
         <Card>
 
           <Icon onClick={this.handleUnfollow} corner name='delete' inverted color='red' />
@@ -29,12 +29,12 @@ class LinkedStockCard extends Component {
 
           <Card.Content onClick={this.handleClick}>
             <Card.Header as='h5'>{this.props.stock.ticker}</Card.Header>
-              <Card.Description as='p'>{this.props.stock.company_name}</Card.Description>
-              <Card.Description as='p'>{ this.props.stock.data[0].last_price }</Card.Description>
+            <Card.Description as='p'>{this.props.stock.company_name}</Card.Description>
+            <Card.Description as='p'>{ this.props.stock.data[0].last_price }</Card.Description>
 
-            </Card.Content>
+          </Card.Content>
         </Card>
-
+      </div>
         )}
         }
 

@@ -13,6 +13,7 @@ class SearchResults extends Component {
   }
 
   handleFollow() {
+  
     this.props.followStock({
       ticker: this.props.ticker,
       company_name: this.props.company_name

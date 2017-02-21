@@ -16,16 +16,9 @@ class Home extends Component {
 
     return (
       <div>
-        <Grid>
-          <Grid.Column width={6}>
-            <IndividualProfileCard user={user} />
-          </Grid.Column>
-          <Grid.Column width={10}>
-            <UserStocks />
-          </Grid.Column>
 
-        </Grid>
-
+        <IndividualProfileCard user={user} />
+        
       </div>
     )
   }
