@@ -25,12 +25,10 @@ class Search extends React.Component {
 
   handleBlur() {
     setTimeout(()=>{ this.setState({ removeResults: true }) }, 250)
-    console.log(`Blur ${ this.state.removeResults }`)
   }
 
   handleFocus() {
     this.queryUnlessBlank()
-    console.log(`Focus ${ this.state.removeResults }`)
   }
 
   render() {

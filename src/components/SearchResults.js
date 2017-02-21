@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
@@ -24,41 +23,24 @@ class SearchResults extends Component {
   }
 
   render() {
-    if( this.props.removeResults ){
-        return null
-    }
-
-
+    if( this.props.removeResults ) return null
 
     return (
       <div className="results">
-
         <div className="padded" onClick={ this.handleResultClick }>
           <p className="stock-header" >{`${ this.props.ticker }: ${ this.props.company_name }`}</p>
 
           <Button className='follow-button' size='mini' color='green' onClick={ this.handleFollow } animated='fade'>
             <Button.Content  visible>
               <Icon name='add'/>
-
             </Button.Content>
+
             <Button.Content hidden>
               Follow
             </Button.Content>
-
-
           </Button>
         </div>
-
-
-
-
-        </div>
-
-
-
-
-
-
+      </div>
     )
   }
 }
