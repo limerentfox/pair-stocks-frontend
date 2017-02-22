@@ -6,7 +6,7 @@ import IndividualProfileCard from '../semantic-ui-components/IndividualProfileCa
 import UserStocks from './UserStocks'
 import FollowingList from './FollowingList'
 
-import { fetchOtherUser } from '../actions/userActions'
+import { fetchUser, fetchOtherUser } from '../actions/userActions'
 
 import { Grid } from 'semantic-ui-react'
 
@@ -17,6 +17,7 @@ class Profile extends Component {
 
   componentWillMount() {
     let username = this.props.params.username
+    this.props.fetchUser()
     this.props.fetchOtherUser(username)
   }
 
@@ -50,10 +51,14 @@ const mapStateToProps = ( state ) => {
 const mapDispatchToProps = ( dispatch ) => {
 
   return {
+    fetchUser: function() {
+      let action = fetchUser()
+      dispatch( action )
+    },
     fetchOtherUser: function(username){
       let action = fetchOtherUser(username)
       dispatch( action )
-    }
+    },
   }
 }
 

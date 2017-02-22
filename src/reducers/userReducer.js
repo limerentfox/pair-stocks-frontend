@@ -26,7 +26,10 @@ export default function userReducer( state=[], action ){
       }
       return Object.assign({}, state, { stocks: [...state.stocks, new_stock] } )
 
-    case 'ADD_FOLLOWING':
+    case 'FOLLOW_USER':
+      return Object.assign({}, state, { following: action.payload } )
+
+    case 'UNFOLLOW_USER':
       return Object.assign({}, state, { following: action.payload } )
 
     default:
