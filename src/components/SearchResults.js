@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { browserHistory } from 'react-router'
 import { connect } from 'react-redux'
 import { followStock } from '../actions/stockActions'
-import { Icon, Button, Header } from 'semantic-ui-react'
+import { Icon, Button } from 'semantic-ui-react'
 
 class SearchResults extends Component {
   constructor() {

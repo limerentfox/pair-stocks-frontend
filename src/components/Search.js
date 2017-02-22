@@ -1,8 +1,9 @@
-
 import React from 'react'
 import { connect } from 'react-redux'
 import { queryStocks } from '../actions/stockActions'
+import { fetchAllUsers } from '../actions/userActions'
 import SearchResults from './SearchResults'
+import UserSearchResults from './UserSearchResults'
 
 class Search extends React.Component {
   constructor() {
@@ -33,13 +34,14 @@ class Search extends React.Component {
 
   render() {
     const stockSearch = this.props.stockSearch
+    const userResults = this.props.userSearch
     const searchComponent = this.getSearchComponent(stockSearch)
+    const userResultsComponent = this.getUserSearchComponent(userResults)
 
     return (
       <div className="ui search" >
         <div className="ui input">
           <input
-
             className="prompt"
             icon='search'
             placeholder='Search...'
@@ -54,6 +56,8 @@ class Search extends React.Component {
         </div>
 
         { searchComponent }
+        <br/>
+        { userResultsComponent }
       </div>
     )
   }
@@ -67,14 +71,15 @@ class Search extends React.Component {
     if(query !== ''){
       this.setState({ removeResults: false })
       this.props.queryStocks(query)
+      this.props.queryUsers()
     } else {
       this.setState({ removeResults: true })
     }
   }
 
-  getSearchComponent(stockSearch){
+  getSearchComponent(stockSearch, userSearch){
     let component = null
-
+    debugger
     if(!this.state.removeResults){
       component = (
         <div>
@@ -89,11 +94,36 @@ class Search extends React.Component {
 
     return component
   }
+
+  getUserSearchComponent(userResults){
+    let component = null
+    let filteredResults = []
+
+    for(var i = 0; i < userResults.length; i++){
+      let firstName = userResults[i].first_name
+      if ( firstName.indexOf(this.refs.search.value) > -1 ) filteredResults.push(userResults[i])
+    }
+
+    if(!this.state.removeResults){
+      component = (
+        <div>
+          {
+            filteredResults.map((user, i) => {
+              return <UserSearchResults key={i} user={ user } />
+            })
+          }
+        </div>
+      )
+    }
+
+    return component
+  }
 }
 
 const mapStateToProps = (state) => {
   return {
-    stockSearch: state.search
+    stockSearch: state.search,
+    userSearch: state.userSearch
   }
 }
 
@@ -101,6 +131,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     queryStocks: function(query) {
       let action = queryStocks(query)
+      dispatch( action )
+    },
+
+    queryUsers: function() {
+      let action = fetchAllUsers()
       dispatch( action )
     }
   }
