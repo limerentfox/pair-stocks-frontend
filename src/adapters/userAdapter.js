@@ -21,7 +21,7 @@ export const userAdapter = {
 
   fetchUser: () => {
     return axios.get('/user')
-    .then( response => response )
+    .then( response => response.data )
     .catch((error) => {
       console.log('Failed to get user info')
       console.log(error)

@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { connect } from 'react-redux'
 import { queryStocks } from '../actions/stockActions'
@@ -78,9 +77,9 @@ class Search extends React.Component {
     }
   }
 
-  getSearchComponent(stockSearch){
+  getSearchComponent(stockSearch, userSearch){
     let component = null
-
+    debugger
     if(!this.state.removeResults){
       component = (
         <div>
