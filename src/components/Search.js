@@ -79,7 +79,7 @@ class Search extends React.Component {
 
   getSearchComponent(stockSearch, userSearch){
     let component = null
-    debugger
+
     if(!this.state.removeResults){
       component = (
         <div>
