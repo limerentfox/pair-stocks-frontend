@@ -76,5 +76,16 @@ export const userAdapter = {
         console.log(error)
         return error
       })
+  },
+
+  unfollowUser: (username) => {
+    return axios.post('/unfollowuser', username)
+      .then((response) => {
+        return response.data
+      }).catch((error) => {
+        console.log('Failed to unfollow user')
+        console.log(error)
+        return error
+      })
   }
 }

@@ -4,7 +4,7 @@ import { List, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
-import { fetchOtherUser } from '../actions/stockActions'
+import { fetchOtherUser } from '../actions/userActions'
 
 class LinkedFriendCard extends Component {
 
@@ -32,26 +32,8 @@ class LinkedFriendCard extends Component {
       </List.Item>
     )
   }
-
-  // render(){
-  //   return (
-  //     <Card>
-  //       <Card.Content onClick={this.handleClick}>
-  //         <Card.Header as='h5'>{`${this.props.following.first_name} ${this.props.following.last_name}`}</Card.Header>
-  //         <Card.Description as='p'>{this.props.following.username}</Card.Description>
-  //
-  //         </Card.Content>
-  //     </Card>
-  //   )
-  // }
 }
 
-// const mapStateToProps = (state) => {
-//   return {
-//     stocks: state.stocks
-//   }
-// }
-//
 function mapDispatchToProps(dispatch){
   return {
     fetchOtherUser: ( username ) => {
