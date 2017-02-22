@@ -22,7 +22,7 @@ export const userAdapter = {
 
   fetchUser: () => {
     return axios.get('/user')
-    .then( response => response )
+    .then( response => response.data )
     .catch((error) => {
       console.log('Failed to get user info')
       console.log(error)
@@ -31,7 +31,20 @@ export const userAdapter = {
     })
   },
 
+<<<<<<< Updated upstream
   createUser: (credentials) => {
+=======
+  fetchAllUsers: () => {
+    return axios.get('/users')
+    .then( response => response.data )
+    .catch((error) => {
+      console.log('Failed to get user info')
+      console.log(error)
+
+      return error
+    })
+  },
+>>>>>>> Stashed changes
 
 
     return axios.post('/signup', credentials)

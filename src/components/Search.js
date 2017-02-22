@@ -1,7 +1,7 @@
-
 import React from 'react'
 import { connect } from 'react-redux'
 import { queryStocks } from '../actions/stockActions'
+import { fetchAllUsers } from '../actions/userActions'
 import SearchResults from './SearchResults'
 
 class Search extends React.Component {
@@ -35,7 +35,8 @@ class Search extends React.Component {
 
   render() {
     const stockSearch = this.props.stockSearch
-    const searchComponent = this.getSearchComponent(stockSearch)
+    const userSearch = this.props.userSearch
+    const searchComponent = this.getSearchComponent(stockSearch, userSearch)
 
     return (
       <div id='search'>
@@ -61,14 +62,15 @@ class Search extends React.Component {
     if(query !== ''){
       this.setState({ removeResults: false })
       this.props.queryStocks(query)
+      this.props.queryAllUsers(query)
     } else {
       this.setState({ removeResults: true })
     }
   }
 
-  getSearchComponent(stockSearch){
+  getSearchComponent(stockSearch, userSearch){
     let component = null
-
+    debugger
     if(!this.state.removeResults){
       component = (
         <div>
@@ -87,7 +89,12 @@ class Search extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
+<<<<<<< Updated upstream
     stockSearch: state.stocks
+=======
+    stockSearch: state.search,
+    userSearch: state.search
+>>>>>>> Stashed changes
   }
 }
 
@@ -96,6 +103,10 @@ const mapDispatchToProps = (dispatch) => {
     queryStocks: function(query) {
       let action = queryStocks(query)
       dispatch( action )
+    },
+    queryAllUsers: function(query) {
+      let action = fetchAllUsers(query)
+      dispatch(action)
     }
   }
 }

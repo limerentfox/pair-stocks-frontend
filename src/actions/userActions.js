@@ -3,8 +3,11 @@ import { userAdapter } from '../adapters/userAdapter'
 export const CREATE_USER = 'CREATE_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const FETCH_USER = 'FETCH_USER'
-
-
+<<<<<<< Updated upstream
+=======
+export const FETCH_ALL_USERS = 'FETCH_ALL_USERS'
+export const FETCH_OTHER_USER = 'FETCH_OTHER_USER'
+>>>>>>> Stashed changes
 
 export const login = (credentials) => {
   const response = userAdapter.login(credentials)
@@ -23,6 +26,26 @@ export const fetchUser = () => {
   }
 }
 
+<<<<<<< Updated upstream
+=======
+export const fetchAllUsers = () => {
+  const response = userAdapter.fetchAllUsers()
+
+  return {
+    type: FETCH_ALL_USERS,
+    payload: response
+  }
+}
+
+export const fetchOtherUser = (username) => {
+  const response = userAdapter.fetchOtherUser(username)
+  return {
+    type: FETCH_OTHER_USER,
+    payload: response
+  }
+}
+
+>>>>>>> Stashed changes
 export const createUser = (user) => {
   const response = userAdapter.createUser(user)
 
