@@ -100,8 +100,9 @@ class Search extends React.Component {
     let filteredResults = []
 
     for(var i = 0; i < userResults.length; i++){
-      let firstName = userResults[i].first_name
-      if ( firstName.indexOf(this.refs.search.value) > -1 ) filteredResults.push(userResults[i])
+      let firstName = userResults[i].first_name.toLowerCase()
+      let lastName = userResults[i].last_name.toLowerCase()
+      if ( (firstName.indexOf(this.refs.search.value.toLowerCase()) > -1) || (lastName.indexOf(this.refs.search.value) > -1) ) filteredResults.push(userResults[i])
     }
 
     if(!this.state.removeResults){
