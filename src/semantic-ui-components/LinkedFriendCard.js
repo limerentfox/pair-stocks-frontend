@@ -1,52 +1,63 @@
 import React, { Component } from 'react'
 
-import { Card, Button, Icon } from 'semantic-ui-react'
+import { List, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { unfollowStock } from '../actions/stockActions'
+import { browserHistory } from 'react-router'
+
+// import { unfollowStock } from '../actions/stockActions'
 
 class LinkedFriendCard extends Component {
-  constructor() {
-    super()
 
-    this.handleUnfollow = this.handleUnfollow.bind(this)
+  handleClick(username) {
+    browserHistory.push(`/profile/${username}`)
   }
 
-  handleUnfollow(){
-    this.props.unfollowStock(
-      { ticker: this.props.stock.ticker }
+  // TODO implement feature to stop following someone
+  
+  // handleUnfollow(){
+  //   this.props.unfollowStock(
+  //     { ticker: this.props.stock.ticker }
+  //   )
+  // }
+
+  render() {
+    return (
+      <List.Item className='link' onClick={ this.handleClick.bind(this, this.props.following.username) }>
+        <Image avatar src='http://semantic-ui.com/images/avatar/small/helen.jpg' />
+        <List.Content>
+          <List.Header>{`${this.props.following.first_name} ${this.props.following.last_name}`}</List.Header>
+          <List.Description>{this.props.following.username}</List.Description>
+        </List.Content>
+      </List.Item>
     )
   }
 
-
-
-  render(){
-    return (
-
-        <Card>
-
-          <Card.Content onClick={this.handleClick}>
-            <Card.Header as='h5'>{`${this.props.following.first_name} ${this.props.following.last_name}`}</Card.Header>
-            <Card.Description as='p'>{this.props.following.username}</Card.Description>
-
-            </Card.Content>
-        </Card>
-
-        )}
-        }
-
-const mapStateToProps = (state) => {
-  return {
-    stocks: state.stocks
-  }
+  // render(){
+  //   return (
+  //     <Card>
+  //       <Card.Content onClick={this.handleClick}>
+  //         <Card.Header as='h5'>{`${this.props.following.first_name} ${this.props.following.last_name}`}</Card.Header>
+  //         <Card.Description as='p'>{this.props.following.username}</Card.Description>
+  //
+  //         </Card.Content>
+  //     </Card>
+  //   )
+  // }
 }
 
-function mapDispatchToProps(dispatch){
-  return {
-    unfollowStock: (params) => {
-      let action = unfollowStock(params)
-      dispatch(action)
-    }
-  }
-}
+// const mapStateToProps = (state) => {
+//   return {
+//     stocks: state.stocks
+//   }
+// }
+//
+// function mapDispatchToProps(dispatch){
+//   return {
+//     unfollowStock: (params) => {
+//       let action = unfollowStock(params)
+//       dispatch(action)
+//     }
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LinkedFriendCard)
+export default connect(null, null)( LinkedFriendCard )

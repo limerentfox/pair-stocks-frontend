@@ -1,46 +1,36 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
+import { Card, List } from 'semantic-ui-react'
 import LinkedFriendCard from '../semantic-ui-components/LinkedFriendCard'
 
-import { fetchFollowing } from '../actions/friendActions'
-
-class FollowingList extends Component {
-
-  componentDidMount() {
-    this.props.fetchFollowing()
-  }
+export default class FollowingList extends Component {
 
   render() {
-    const followingList = this.props.following
+    const user = this.props.user
 
-    if ( followingList === undefined || followingList.length === 0 ) {
-      return ( <div> </div> )
+    if ( user.length === 0 || user.user_following.length === 0 || user.hasOwnProperty('no_friends')) {
+      return (
+        <div className="following-list">
+          <Card>
+            <h5>Following</h5>
+            <h5>Use the search bar to find friends</h5>
+            <br></br>
+          </Card>
+        </div>
+      )
     }
+
+    const followingList = user.user_following
 
     return (
       <div className="following-list">
-        {
-          followingList.map( ( following, i ) => <LinkedFriendCard key={i} following={ following } /> )
-        }
+        <Card>
+          <h5>Following</h5>
+          <List animated verticalAlign='middle'>
+            { followingList.map( ( following, i ) => <LinkedFriendCard key={i} following={ following } /> ) }
+          </List>
+        </Card>
       </div>
     )
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    following: state.following
-  }
-}
-
-function mapDispatchToProps(dispatch){
-  return {
-    fetchFollowing: function() {
-      let action = fetchFollowing()
-      dispatch( action )
-    }
-  }
-}
-
-export default connect( mapStateToProps, mapDispatchToProps )( FollowingList )

@@ -8,29 +8,26 @@ import { Grid } from 'semantic-ui-react'
 
 
 class Home extends Component {
-  componentWillMount(){
 
+  componentWillMount(){
     this.props.fetchUser()
-    console.log('got the user!')
   }
 
-  render(){
-
+  render() {
+    const props = this.props
     const user = this.props.user
 
     return (
       <Grid>
-        <Grid.Column width={5}>
-          <IndividualProfileCard user={user} />
+        <Grid.Column width={ 5 }>
+          <IndividualProfileCard state={ props } />
+          <FollowingList user={ user }/>
         </Grid.Column>
 
-
-
-        <Grid.Column width={11}>
-          <UserStocks user={user}/>
-          </Grid.Column >
-        </Grid>
-
+        <Grid.Column width={ 11 }>
+          <UserStocks user={ user }/>
+        </Grid.Column >
+      </Grid>
     )
   }
 }
