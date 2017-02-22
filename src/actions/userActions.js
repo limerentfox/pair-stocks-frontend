@@ -4,6 +4,7 @@ export const CREATE_USER = 'CREATE_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const FETCH_USER = 'FETCH_USER'
 export const FETCH_OTHER_USER = 'FETCH_OTHER_USER'
+export const FOLLOW_USER = 'FOLLOW_USER'
 
 
 
@@ -37,6 +38,15 @@ export const createUser = (user) => {
 
   return {
     type: CREATE_USER,
+    payload: response
+  }
+}
+
+export const followUser = (username) => {
+  const response = userAdapter.followUser(username)
+
+  return {
+    type: FOLLOW_USER,
     payload: response
   }
 }

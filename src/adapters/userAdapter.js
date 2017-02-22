@@ -55,5 +55,16 @@ export const userAdapter = {
         console.log(error)
         return error
       })
+  },
+
+  followUser: (username) => {
+    return axios.post('/following', username)
+      .then((response) => {
+        return response.data
+      }).catch((error) => {
+        console.log('Failed to follow user')
+        console.log(error)
+        return error
+      })
   }
 }

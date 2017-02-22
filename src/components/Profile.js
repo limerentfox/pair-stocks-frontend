@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import IndividualProfileCard from '../semantic-ui-components/IndividualProfileCard'
 
 import UserStocks from './UserStocks'
-// import FollowingList from './FollowingList'
+import FollowingList from './FollowingList'
 
 import { fetchOtherUser } from '../actions/userActions'
 
-// import { Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 import '../../public/stylesheets/master.css'
 import '../../public/feather.png'
@@ -20,17 +20,24 @@ class Profile extends Component {
     this.props.fetchOtherUser(username)
   }
 
-  render(){
+  render() {
+    const props = this.props
     const user = this.props.viewUser
 
-    return (
-      <div>
-        <IndividualProfileCard user={ user } />
-        <UserStocks user={ user }/>
-      </div>
-    )
+      return (
+        <Grid>
+          <Grid.Column width={ 5 }>
+            <IndividualProfileCard state={ props } />
+            <FollowingList user={ user }/>
+          </Grid.Column>
+
+          <Grid.Column width={ 11 }>
+            <UserStocks user={ user }/>
+          </Grid.Column >
+        </Grid>
+      )
+    }
   }
-}
 
 const mapStateToProps = ( state ) => {
 

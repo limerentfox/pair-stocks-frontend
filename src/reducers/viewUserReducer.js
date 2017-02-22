@@ -1,5 +1,3 @@
-import { browserHistory } from 'react-router'
-
 export default function viewUserReducer( state=[], action ){
   switch (action.type) {
     case 'FETCH_OTHER_USER':

@@ -56,3 +56,15 @@
   border-bottom-left-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
 }
+
+.following-list h5{
+  text-align: center;
+}
+
+.ui.card {
+  padding: 5px;
+}
+
+.link {
+  cursor: pointer;
+}
