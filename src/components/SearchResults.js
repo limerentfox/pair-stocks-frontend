@@ -8,7 +8,6 @@ class SearchResults extends Component {
     super()
 
     this.handleFollow = this.handleFollow.bind(this)
-    // this.handleResultClick = this.handleResultClick.bind(this)
   }
 
   handleFollow() {
@@ -19,16 +18,9 @@ class SearchResults extends Component {
     })
 
     this.props.clearQuery()
-
   }
 
-  // handleResultClick() {
-  //   browserHistory.push('/stock')
-  // }
-
   render() {
-    // if( this.props.removeResults ) return null
-
     return (
       <div className="results">
         <div className="padded" >

@@ -5,7 +5,10 @@ import { Header } from 'semantic-ui-react'
 
 export default class LogIn extends Component {
   render(){
-    if(!!sessionStorage.jwt) browserHistory.push('/')
+    if(!!sessionStorage.jwt) {
+      browserHistory.push('/')
+      window.location.reload()
+    }
 
     return (
       <div>

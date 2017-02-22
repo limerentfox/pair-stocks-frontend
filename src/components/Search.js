@@ -110,7 +110,7 @@ class Search extends React.Component {
         <div>
           {
             filteredResults.map((user, i) => {
-              return <UserSearchResults key={i} user={ user } />
+              return <UserSearchResults key={i} clearQuery={this.clearQuery.bind(this)} user={ user } />
             })
           }
         </div>
