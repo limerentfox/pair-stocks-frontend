@@ -26,7 +26,7 @@ class Home extends Component {
 
         <Grid.Column width={ 11 }>
           <UserStocks user={ user }/>
-        </Grid.Column >
+          </Grid.Column >
       </Grid>
     )
   }
