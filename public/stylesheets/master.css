@@ -29,6 +29,11 @@
 
 }
 
+/* unfollow icon for stocks */
+.unfollow-icon {
+  margin-left: -10px !important;
+  margin-top: -10px !important;
+}
 
 
 /* search results */

@@ -21,13 +21,13 @@ class Profile extends Component {
   }
 
   render() {
-    const props = this.props
+    const currentUser = this.props.user
     const user = this.props.viewUser
 
       return (
         <Grid>
           <Grid.Column width={ 5 }>
-            <IndividualProfileCard state={ props } />
+            <IndividualProfileCard currentUser={currentUser} user={ user } />
             <FollowingList user={ user }/>
           </Grid.Column>
 

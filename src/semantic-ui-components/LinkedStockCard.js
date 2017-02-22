@@ -23,10 +23,9 @@ class LinkedStockCard extends Component {
     return (
 
         <Card>
-
-          <Icon className='delete' onClick={this.handleUnfollow} corner name='delete' inverted color='red' />
-
-
+          <div></div>
+          <Icon className='circular unfollow-icon' onClick={this.handleUnfollow} corner name='delete' inverted color='red' />
+          
           <Card.Content onClick={this.handleClick}>
             <Card.Header as='h5'>{this.props.stock.ticker}</Card.Header>
             <Card.Description >{this.props.stock.company_name}</Card.Description>
