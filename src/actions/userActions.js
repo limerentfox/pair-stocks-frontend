@@ -3,6 +3,7 @@ import { userAdapter } from '../adapters/userAdapter'
 export const CREATE_USER = 'CREATE_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const FETCH_USER = 'FETCH_USER'
+export const FETCH_ALL_USERS = 'FETCH_ALL_USERS'
 export const FETCH_OTHER_USER = 'FETCH_OTHER_USER'
 export const FOLLOW_USER = 'FOLLOW_USER'
 
@@ -21,6 +22,15 @@ export const fetchUser = () => {
 
   return {
     type: FETCH_USER,
+    payload: response
+  }
+}
+
+export const fetchAllUsers = () => {
+  const response = userAdapter.fetchAllUsers()
+
+  return {
+    type: FETCH_ALL_USERS,
     payload: response
   }
 }

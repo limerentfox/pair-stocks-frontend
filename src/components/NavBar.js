@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
-import { browserHistory } from 'react-router'
+import { browserHistory, Link } from 'react-router'
 import Search from './Search'
 
 import '../../public/stylesheets/master.css'
@@ -24,7 +24,7 @@ export default class NavBar extends Component {
       return (
         <Menu secondary attached='top'>
           <Menu.Item name='home'  >
-            <img src={require('../../public/feather.png')} alt='logo'/>
+            <Link to='/login'><img id='logo-png' src={require('../../public/feather.png')} alt='logo'/></Link>
           </Menu.Item>
         </Menu>
       )
@@ -34,8 +34,7 @@ export default class NavBar extends Component {
     return (
       <Menu secondary attached='top'>
         <Menu.Item name='home' >
-          <img src={require('../../public/feather.png')} alt='logo'/>
-
+          <Link to='/home'><img id='logo-png' src={require('../../public/feather.png')} alt='logo'/></Link>
         </Menu.Item>
         <Menu.Item >
           <div className='hover'>
