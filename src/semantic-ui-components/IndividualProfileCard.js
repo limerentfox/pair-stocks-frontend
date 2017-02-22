@@ -75,7 +75,7 @@ class IndividualProfileCard extends Component {
           </Card.Content>
           <Card.Content extra>
             <a>
-              <Button onClick={ this.handleClick.bind(this, {username: user.username} ) } color='green'>Follow</Button>
+              <Button onClick={ this.handleFollow.bind(this, {username: user.username} ) } color='green'>Follow</Button>
             </a>
             </Card.Content>
       </Card>
