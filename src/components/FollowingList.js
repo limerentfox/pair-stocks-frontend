@@ -8,7 +8,8 @@ export default class FollowingList extends Component {
   render() {
     const user = this.props.user
 
-    if ( user.length === 0 || user.user_following.length === 0 || user.hasOwnProperty('no_friends')) {
+
+    if ( user === undefined || user.length === 0 || user.hasOwnProperty('no_friends')) {
       return (
         <div className="following-list">
           <Card>

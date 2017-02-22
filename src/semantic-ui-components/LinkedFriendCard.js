@@ -4,16 +4,17 @@ import { List, Image } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 
-// import { unfollowStock } from '../actions/stockActions'
+import { fetchOtherUser } from '../actions/stockActions'
 
 class LinkedFriendCard extends Component {
 
   handleClick(username) {
     browserHistory.push(`/profile/${username}`)
+    this.props.fetchOtherUser(username)
   }
 
   // TODO implement feature to stop following someone
-  
+
   // handleUnfollow(){
   //   this.props.unfollowStock(
   //     { ticker: this.props.stock.ticker }
@@ -51,13 +52,13 @@ class LinkedFriendCard extends Component {
 //   }
 // }
 //
-// function mapDispatchToProps(dispatch){
-//   return {
-//     unfollowStock: (params) => {
-//       let action = unfollowStock(params)
-//       dispatch(action)
-//     }
-//   }
-// }
+function mapDispatchToProps(dispatch){
+  return {
+    fetchOtherUser: ( username ) => {
+      let action = fetchOtherUser( username )
+      dispatch(action)
+    }
+  }
+}
 
-export default connect(null, null)( LinkedFriendCard )
+export default connect( null, mapDispatchToProps )( LinkedFriendCard )
