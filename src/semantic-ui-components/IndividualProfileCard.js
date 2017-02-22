@@ -12,36 +12,39 @@ class IndividualProfileCard extends Component {
   }
 
   render(){
-    let user = undefined
+    let user = this.props.user
+    let currentUser = undefined
 
-    if ( this.props.state.user.length === 0 ) {
-      user = this.props.state.viewUser
-    }
-    else {
-      user = this.props.state.user
-    }
+    // debugger
 
-    if ( user === undefined ) {
+    // if ( this.props.state.user.length === 0 ) {
+    //   user = this.props.state.viewUser
+    // }
+    // else {
+    //   user = this.props.state.user
+    // }
+
+    if ( user === undefined || user.length === 0 ) {
       return (<div></div>)
     }
 
-    if ( this.props.state.hasOwnProperty('viewUser') ) {
-      return (
-        <Card className="card">
-          <Image src='http://semantic-ui.com/images/avatar/large/elliot.jpg' />
-            <Card.Content>
-              <Card.Header>{`${ user.first_name } ${ user.last_name }`}</Card.Header>
-              <Card.Meta>{ user.username }</Card.Meta>
-              <Card.Description>{`${ user.first_name } is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.`}</Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <a>
-                <Button onClick={ this.handleClick.bind(this, {username: user.username} ) } color='green'>Follow</Button>
-              </a>
-              </Card.Content>
-        </Card>
-      )
-    }
+    // if ( user.hasOwnProperty('viewUser') ) {
+    //   return (
+    //     <Card className="card">
+    //       <Image src='http://semantic-ui.com/images/avatar/large/elliot.jpg' />
+    //         <Card.Content>
+    //           <Card.Header>{`${ user.first_name } ${ user.last_name }`}</Card.Header>
+    //           <Card.Meta>{ user.username }</Card.Meta>
+    //           <Card.Description>{`${ user.first_name } is a sound engineer living in Nashville who enjoys playing guitar and hanging with his cat.`}</Card.Description>
+    //         </Card.Content>
+    //         <Card.Content extra>
+    //           <a>
+    //             <Button onClick={ this.handleClick.bind(this, {username: user.username} ) } color='green'>Follow</Button>
+    //           </a>
+    //           </Card.Content>
+    //     </Card>
+    //   )
+    // }
 
     return (
       <Card className="card">

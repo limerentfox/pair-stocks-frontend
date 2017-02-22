@@ -14,13 +14,12 @@ class Home extends Component {
   }
 
   render() {
-    const props = this.props
     const user = this.props.user
 
     return (
       <Grid>
         <Grid.Column width={ 5 }>
-          <IndividualProfileCard state={ props } />
+          <IndividualProfileCard user={ user } />
           <FollowingList user={ user }/>
         </Grid.Column>
 
