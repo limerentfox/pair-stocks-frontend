@@ -89,12 +89,8 @@ class Search extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-<<<<<<< Updated upstream
-    stockSearch: state.stocks
-=======
     stockSearch: state.search,
     userSearch: state.search
->>>>>>> Stashed changes
   }
 }
 

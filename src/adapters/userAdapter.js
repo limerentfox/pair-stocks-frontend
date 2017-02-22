@@ -31,9 +31,7 @@ export const userAdapter = {
     })
   },
 
-<<<<<<< Updated upstream
   createUser: (credentials) => {
-=======
   fetchAllUsers: () => {
     return axios.get('/users')
     .then( response => response.data )
@@ -44,8 +42,6 @@ export const userAdapter = {
       return error
     })
   },
->>>>>>> Stashed changes
-
 
     return axios.post('/signup', credentials)
       .then((response) => {

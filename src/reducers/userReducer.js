@@ -21,7 +21,6 @@ export default function userReducer( state=[], action ){
       }
 
       return Object.assign({}, state, { stocks: [...state.stocks, new_stock] } )
->>>>>>> Stashed changes
     default:
       return state
   }
