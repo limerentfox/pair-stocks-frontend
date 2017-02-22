@@ -9,6 +9,7 @@ class IndividualProfileCard extends Component {
 
   handleFollow(username) {
     this.props.followUser(username)
+    window.location.reload()
   }
 
   handleUnfollow(username) {
@@ -19,13 +20,8 @@ class IndividualProfileCard extends Component {
     let user = this.props.user
     let currentUser = undefined
 
-    if ( this.props.currentUser !== 0 ) {
-      currentUser = this.props.currentUser
-    }
-
-    if ( user === undefined || user.length === 0 ) {
-      return (<div></div>)
-    }
+    if ( this.props.currentUser !== 0 ) currentUser = this.props.currentUser
+    if ( user === undefined || user.length === 0 ) return <div></div>
 
     if ( currentUser === undefined || currentUser.length === 0 || user.username === currentUser.username ) {
       return (
