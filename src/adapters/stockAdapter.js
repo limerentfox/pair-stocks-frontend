@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:4000/api/v1/'
+axios.defaults.baseURL = 'http://pair-social-stocks-api.herokuapp.com/api/v1/'
 axios.defaults.headers.common['AUTHORIZATION'] = sessionStorage.getItem('jwt')
 
 export const stockAdapter = {
