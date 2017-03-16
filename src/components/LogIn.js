@@ -13,8 +13,8 @@ export default class LogIn extends Component {
     return (
       <div>
         <Header as='h2'>Log In</Header>
-          <LoginForm />
-        </div>
+        <LoginForm />
+      </div>
     )
   }
 }

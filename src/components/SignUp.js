@@ -10,6 +10,7 @@ export default class SignUp extends Component {
     return (
       <div>
         <Header as='h2'>Sign Up</Header>
+        <h2>I was updated on heroku</h2>
         <SignUpForm />
       </div>
     )

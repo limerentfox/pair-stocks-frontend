@@ -23,6 +23,9 @@ export default function userReducer( state=[], action ){
         ticker: action.payload.ticker,
         company_name: action.payload.company_name
       }
+
+      debugger
+
       return Object.assign({}, state, { stocks: [...state.stocks, action.payload] } )
     case 'FOLLOW_USER':
       return Object.assign({}, state, { following: action.payload } )
