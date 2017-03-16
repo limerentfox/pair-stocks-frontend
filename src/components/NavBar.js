@@ -38,19 +38,14 @@ export default class NavBar extends Component {
         </Menu.Item>
         <Menu.Item >
           <div className='hover'>
-
             <Search />
-
           </div>
         </Menu.Item>
 
         <Menu.Item position='right' name='logout' onClick={this.handleLogOut} >
           Logout
         </Menu.Item>
-
       </Menu>
-
-
     )
   }
 }
