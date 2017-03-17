@@ -10,7 +10,6 @@ class UserSearchResults extends Component {
 
   handleUserClick() {
     browserHistory.push(`/profile/${this.props.user.username}`)
-    window.location.reload()
   }
 
   render() {
