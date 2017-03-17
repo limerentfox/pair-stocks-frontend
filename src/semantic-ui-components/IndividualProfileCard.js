@@ -9,7 +9,6 @@ class IndividualProfileCard extends Component {
 
   handleFollow(username) {
     this.props.followUser(username)
-    window.location.reload()
   }
 
   handleUnfollow(username) {
